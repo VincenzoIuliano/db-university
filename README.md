@@ -16,9 +16,9 @@ WHERE `cfu` > 10
 ### Selezionare tutti gli studenti che hanno più di 30 anni
 
 ```SQL
-SELECT *
+SELECT *, TIMESTAMPDIFF(YEAR, `date_of_birth`,CURDATE()) AS `anni`
 FROM `students`
-WHERE YEAR(`date_of_birth`) <= 1994
+WHERE TIMESTAMPDIFF( YEAR, `date_of_birth`, CURDATE()) > 30
 ```
 
 ### Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea
